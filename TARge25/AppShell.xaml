@@ -8,6 +8,11 @@
 
     <TabBar>
         <ShellContent
+            Title="Lumememm"
+            ContentTemplate="{DataTemplate local:LumememmPage}"
+            Route="LumememmPage" />
+
+        <ShellContent
             Title="Pop-up"
             ContentTemplate="{DataTemplate local:PopUpPage}"
             Route="PopUpPage" />
