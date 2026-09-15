@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TARge25.ValgusfoorPage"
+    Title="Valgusfoor"
+    BackgroundColor="#E8EEF2">
+
+    <Grid>
+        <!-- Taustapilt -->
+        <Image
+            x:Name="BackgroundImage"
+            Source="city_street.svg"
+            Aspect="AspectFill"
+            Opacity="0.45" />
+
+        <!-- Öörežiimis muudab tausta tumedamaks -->
+        <BoxView
+            x:Name="NightOverlay"
+            BackgroundColor="Black"
+            Opacity="0"
+            InputTransparent="True" />
+
+        <ScrollView>
+            <VerticalStackLayout
+                Padding="30"
+                Spacing="20"
+                HorizontalOptions="Center">
+
+                <Label
+                    x:Name="StatusLabel"
+                    Text="Vali valgus."
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    TextColor="Black" />
+
+                <Frame
+                    x:Name="TrafficLightBody"
+                    Padding="18"
+                    CornerRadius="28"
+                    BackgroundColor="#CC202020"
+                    BorderColor="#555555"
+                    HasShadow="True"
+                    HorizontalOptions="Center">
+
+                    <VerticalStackLayout
+                        Spacing="12"
+                        HorizontalOptions="Center">
+
+                        <Frame
+                            x:Name="RedLight"
+                            WidthRequest="120"
+                            HeightRequest="120"
+                            Padding="0"
+                            CornerRadius="60"
+                            BackgroundColor="Gray"
+                            BorderColor="#666666"
+                            HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRedTapped" />
+                            </Frame.GestureRecognizers>
+                            <Label
+                                Text="punane"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="#222222"
+                                FontAttributes="Bold" />
+                        </Frame>
+
+                        <Frame
+                            x:Name="YellowLight"
+                            WidthRequest="120"
+                            HeightRequest="120"
+                            Padding="0"
+                            CornerRadius="60"
+                            BackgroundColor="Gray"
+                            BorderColor="#666666"
+                            HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnYellowTapped" />
+                            </Frame.GestureRecognizers>
+                            <Label
+                                Text="kollane"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="#222222"
+                                FontAttributes="Bold" />
+                        </Frame>
+
+                        <Frame
+                            x:Name="GreenLight"
+                            WidthRequest="120"
+                            HeightRequest="120"
+                            Padding="0"
+                            CornerRadius="60"
+                            BackgroundColor="Gray"
+                            BorderColor="#666666"
+                            HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGreenTapped" />
+                            </Frame.GestureRecognizers>
+                            <Label
+                                Text="roheline"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="#222222"
+                                FontAttributes="Bold" />
+                        </Frame>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <HorizontalStackLayout
+                    Spacing="18"
+                    HorizontalOptions="Center">
+
+                    <Button
+                        x:Name="TurnOnButton"
+                        Text="SISSE"
+                        WidthRequest="110"
+                        Clicked="OnTurnOnClicked" />
+
+                    <Button
+                        x:Name="TurnOffButton"
+                        Text="VÄLJA"
+                        WidthRequest="110"
+                        Clicked="OnTurnOffClicked" />
+
+                </HorizontalStackLayout>
+
+                <Button
+                    x:Name="NightModeButton"
+                    Text="ÖÖREŽIIM"
+                    WidthRequest="238"
+                    Clicked="OnNightModeClicked" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

@@ -6,9 +6,16 @@
     xmlns:local="clr-namespace:TARge25"
     Title="TARge25">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Pop-up"
+            ContentTemplate="{DataTemplate local:PopUpPage}"
+            Route="PopUpPage" />
+
+        <ShellContent
+            Title="Valgusfoor"
+            ContentTemplate="{DataTemplate local:ValgusfoorPage}"
+            Route="ValgusfoorPage" />
+    </TabBar>
 
 </Shell>
