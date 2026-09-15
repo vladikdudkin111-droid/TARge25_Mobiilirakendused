@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TARge25.TreePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Puu">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="18" Spacing="14">
+
+            <Label
+                Text="🌳 Puu hooajad ja elutsükkel"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center" />
+
+            <!-- Puu joonistatakse AbsoluteLayout abil täpsete koordinaatidega. -->
+            <AbsoluteLayout
+                x:Name="Scene"
+                WidthRequest="360"
+                HeightRequest="420"
+                HorizontalOptions="Center"
+                BackgroundColor="#BDE3FF">
+
+                <Label
+                    x:Name="SunMoonLabel"
+                    Text="☀️"
+                    FontSize="44"
+                    AbsoluteLayout.LayoutBounds="285,20,60,60"
+                    AbsoluteLayout.LayoutFlags="None" />
+
+                <BoxView
+                    Color="#9ACD72"
+                    AbsoluteLayout.LayoutBounds="0,360,360,60"
+                    AbsoluteLayout.LayoutFlags="None" />
+
+                <!-- Kõik puu osad on ühes grupis, et neid saaks koos animeerida. -->
+                <AbsoluteLayout
+                    x:Name="TreeGroup"
+                    AbsoluteLayout.LayoutBounds="30,20,300,350"
+                    AbsoluteLayout.LayoutFlags="None">
+
+                    <!-- Puutüvi -->
+                    <BoxView
+                        x:Name="Trunk"
+                        Color="#7A4B24"
+                        AbsoluteLayout.LayoutBounds="130,185,42,155"
+                        AbsoluteLayout.LayoutFlags="None" />
+
+                    <!-- Lehestik -->
+                    <Frame
+                        x:Name="CrownLeft"
+                        WidthRequest="145"
+                        HeightRequest="145"
+                        Padding="0"
+                        CornerRadius="72"
+                        HasShadow="True"
+                        BackgroundColor="#49A942"
+                        BorderColor="#2F7D32"
+                        AbsoluteLayout.LayoutBounds="25,90,145,145"
+                        AbsoluteLayout.LayoutFlags="None" />
+
+                    <Frame
+                        x:Name="CrownRight"
+                        WidthRequest="145"
+                        HeightRequest="145"
+                        Padding="0"
+                        CornerRadius="72"
+                        HasShadow="True"
+                        BackgroundColor="#49A942"
+                        BorderColor="#2F7D32"
+                        AbsoluteLayout.LayoutBounds="130,90,145,145"
+                        AbsoluteLayout.LayoutFlags="None" />
+
+                    <Frame
+                        x:Name="CrownTop"
+                        WidthRequest="155"
+                        HeightRequest="155"
+                        Padding="0"
+                        CornerRadius="78"
+                        HasShadow="True"
+                        BackgroundColor="#55B94D"
+                        BorderColor="#2F7D32"
+                        AbsoluteLayout.LayoutBounds="72,35,155,155"
+                        AbsoluteLayout.LayoutFlags="None" />
+
+                    <!-- Õied on alguses peidetud ja ilmuvad tegevusega Õitse. -->
+                    <Frame x:Name="Flower1" IsVisible="False" WidthRequest="26" HeightRequest="26" Padding="0" CornerRadius="13" BackgroundColor="HotPink" BorderColor="White" AbsoluteLayout.LayoutBounds="78,85,26,26" AbsoluteLayout.LayoutFlags="None" />
+                    <Frame x:Name="Flower2" IsVisible="False" WidthRequest="26" HeightRequest="26" Padding="0" CornerRadius="13" BackgroundColor="LightPink" BorderColor="White" AbsoluteLayout.LayoutBounds="185,82,26,26" AbsoluteLayout.LayoutFlags="None" />
+                    <Frame x:Name="Flower3" IsVisible="False" WidthRequest="26" HeightRequest="26" Padding="0" CornerRadius="13" BackgroundColor="DeepPink" BorderColor="White" AbsoluteLayout.LayoutBounds="132,55,26,26" AbsoluteLayout.LayoutFlags="None" />
+                    <Frame x:Name="Flower4" IsVisible="False" WidthRequest="26" HeightRequest="26" Padding="0" CornerRadius="13" BackgroundColor="LightPink" BorderColor="White" AbsoluteLayout.LayoutBounds="145,145,26,26" AbsoluteLayout.LayoutFlags="None" />
+
+                    <!-- Loovuse lisa: interaktiivsed õunad TapGestureRecognizer abil. -->
+                    <Frame x:Name="Apple1" WidthRequest="28" HeightRequest="28" Padding="0" CornerRadius="14" BackgroundColor="Red" BorderColor="DarkRed" AbsoluteLayout.LayoutBounds="82,135,28,28" AbsoluteLayout.LayoutFlags="None">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAppleTapped" CommandParameter="Apple1" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame x:Name="Apple2" WidthRequest="28" HeightRequest="28" Padding="0" CornerRadius="14" BackgroundColor="Red" BorderColor="DarkRed" AbsoluteLayout.LayoutBounds="185,135,28,28" AbsoluteLayout.LayoutFlags="None">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAppleTapped" CommandParameter="Apple2" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame x:Name="Apple3" WidthRequest="28" HeightRequest="28" Padding="0" CornerRadius="14" BackgroundColor="Crimson" BorderColor="DarkRed" AbsoluteLayout.LayoutBounds="137,105,28,28" AbsoluteLayout.LayoutFlags="None">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAppleTapped" CommandParameter="Apple3" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </AbsoluteLayout>
+            </AbsoluteLayout>
+
+            <Label
+                x:Name="InfoLabel"
+                Text="Vali tegevus ja vajuta KÄIVITA."
+                FontSize="17"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center" />
+
+            <Picker x:Name="ActionPicker" Title="Vali tegevus">
+                <Picker.Items>
+                    <x:String>Kasva</x:String>
+                    <x:String>Õitse</x:String>
+                    <x:String>Värise</x:String>
+                    <x:String>Langeta</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button
+                Text="KÄIVITA"
+                HeightRequest="52"
+                Clicked="OnActionClicked" />
+
+            <Label x:Name="OpacityLabel" Text="Lehestiku läbipaistvus: 100%" />
+            <Slider
+                x:Name="OpacitySlider"
+                Minimum="0"
+                Maximum="1"
+                Value="1"
+                ValueChanged="OnOpacityChanged" />
+
+            <HorizontalStackLayout Spacing="16">
+                <Label
+                    x:Name="SpeedLabel"
+                    Text="Animatsiooni aeg: 1000 ms"
+                    VerticalOptions="Center" />
+                <Stepper
+                    x:Name="SpeedStepper"
+                    Minimum="500"
+                    Maximum="2000"
+                    Increment="250"
+                    Value="1000"
+                    ValueChanged="OnSpeedChanged" />
+            </HorizontalStackLayout>
+
+            <Label Text="Virtuaalne kuupäev:" FontAttributes="Bold" />
+            <DatePicker
+                x:Name="SeasonDatePicker"
+                DateSelected="OnDateSelected" />
+
+            <Label Text="Virtuaalne kellaaeg:" FontAttributes="Bold" />
+            <TimePicker
+                x:Name="WorkTimePicker"
+                Time="12:00:00" />
+
+            <Label
+                Text="Langetamine on lubatud ainult talvel (12, 1, 2) ja valgel ajal 08:00–17:00. Õunu saab puudutada."
+                FontSize="13"
+                TextColor="DimGray" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

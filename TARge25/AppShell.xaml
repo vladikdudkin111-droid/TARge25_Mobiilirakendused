@@ -8,6 +8,11 @@
 
     <TabBar>
         <ShellContent
+            Title="Puu"
+            ContentTemplate="{DataTemplate local:TreePage}"
+            Route="TreePage" />
+
+        <ShellContent
             Title="Lumememm"
             ContentTemplate="{DataTemplate local:LumememmPage}"
             Route="LumememmPage" />
