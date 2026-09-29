@@ -21,6 +21,8 @@ public class MenuPage : ContentPage
         Button snowmanButton = CreateMenuButton("Lumememm");
         Button popupButton = CreateMenuButton("Pop-up aknad");
         Button trafficLightButton = CreateMenuButton("Valgusfoor");
+        // Loome menüünupu, millega saab avada Trips-Traps-Trull mängu.
+        Button ticTacToeButton = CreateMenuButton("Trips-Traps-Trull");
 
         treeButton.Clicked += async (sender, e) =>
             await Navigation.PushAsync(new TreePage());
@@ -34,6 +36,11 @@ public class MenuPage : ContentPage
         trafficLightButton.Clicked += async (sender, e) =>
             await Navigation.PushAsync(new ValgusfoorPage());
 
+        // Nupule vajutades avame Trips-Traps-Trull lehe.
+        // Mängu failid asuvad eraldi TripsTrapsTrull kaustas.
+        ticTacToeButton.Clicked += async (sender, e) =>
+            await Navigation.PushAsync(new TicTacToePage());
+
         Content = new ScrollView
         {
             Content = new VerticalStackLayout
@@ -46,7 +53,8 @@ public class MenuPage : ContentPage
                     treeButton,
                     snowmanButton,
                     popupButton,
-                    trafficLightButton
+                    trafficLightButton,
+                    ticTacToeButton
                 }
             }
         };
