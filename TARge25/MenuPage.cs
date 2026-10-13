@@ -1,3 +1,5 @@
+using TARge25.CarouselGallery;
+
 namespace TARge25;
 
 public class MenuPage : ContentPage
@@ -24,6 +26,9 @@ public class MenuPage : ContentPage
         // Loome menüünupu, millega saab avada Trips-Traps-Trull mängu.
         Button ticTacToeButton = CreateMenuButton("Trips-Traps-Trull");
 
+        // Loome nupu uue CarouselView galerii ülesande avamiseks.
+        Button carouselGalleryButton = CreateMenuButton("CarouselView galerii");
+
         treeButton.Clicked += async (sender, e) =>
             await Navigation.PushAsync(new TreePage());
 
@@ -41,6 +46,10 @@ public class MenuPage : ContentPage
         ticTacToeButton.Clicked += async (sender, e) =>
             await Navigation.PushAsync(new TicTacToePage());
 
+        // Nupule vajutades avame programmeerimiskeelte CarouselView galerii.
+        carouselGalleryButton.Clicked += async (sender, e) =>
+            await Navigation.PushAsync(new ProgrammingLanguagesPage());
+
         Content = new ScrollView
         {
             Content = new VerticalStackLayout
@@ -54,7 +63,8 @@ public class MenuPage : ContentPage
                     snowmanButton,
                     popupButton,
                     trafficLightButton,
-                    ticTacToeButton
+                    ticTacToeButton,
+                    carouselGalleryButton
                 }
             }
         };

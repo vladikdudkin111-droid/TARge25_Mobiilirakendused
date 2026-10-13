@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="PageTitle" xml:space="preserve"><value>Programming Languages</value></data>
+  <data name="GalleryTitle" xml:space="preserve"><value>Programming Languages Portfolio</value></data>
+  <data name="GallerySubtitle" xml:space="preserve"><value>Discover five programming languages</value></data>
+  <data name="LanguageLabel" xml:space="preserve"><value>Language</value></data>
+  <data name="LanguagePickerTitle" xml:space="preserve"><value>Choose language</value></data>
+  <data name="AutoScrollInfo" xml:space="preserve"><value>Automatic scrolling: every 10 seconds</value></data>
+  <data name="CloseButton" xml:space="preserve"><value>Close</value></data>
+  <data name="CSharpDescription" xml:space="preserve"><value>Powerful object-oriented language</value></data>
+  <data name="CSharpDetail" xml:space="preserve"><value>Created around 2000 at Microsoft.
+
+Hello World:
+Console.WriteLine("Hello, World!");</value></data>
+  <data name="PythonDescription" xml:space="preserve"><value>Great for data and automation</value></data>
+  <data name="PythonDetail" xml:space="preserve"><value>Created by Guido van Rossum and first released in 1991.
+
+Hello World:
+print("Hello, World!")</value></data>
+  <data name="JavaScriptDescription" xml:space="preserve"><value>The language of the web</value></data>
+  <data name="JavaScriptDetail" xml:space="preserve"><value>Created by Brendan Eich in 1995.
+
+Hello World:
+console.log("Hello, World!");</value></data>
+  <data name="JavaDescription" xml:space="preserve"><value>Write once, run anywhere</value></data>
+  <data name="JavaDetail" xml:space="preserve"><value>Java was first released in 1995.
+
+Hello World:
+System.out.println("Hello, World!");</value></data>
+  <data name="CppDescription" xml:space="preserve"><value>High-performance system language</value></data>
+  <data name="CppDetail" xml:space="preserve"><value>C++ was created by Bjarne Stroustrup and first released in 1985.
+
+Hello World:
+std::cout &lt;&lt; "Hello, World!";</value></data>
+<data name="DetailsButton" xml:space="preserve"><value>Learn more</value></data></root>
