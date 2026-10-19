@@ -1,4 +1,5 @@
 using TARge25.CarouselGallery;
+using TARge25.MemoryGame;
 
 namespace TARge25;
 
@@ -29,6 +30,9 @@ public class MenuPage : ContentPage
         // Loome nupu uue CarouselView galerii ülesande avamiseks.
         Button carouselGalleryButton = CreateMenuButton("CarouselView galerii");
 
+        // Avame uue OOP Memo mängu, mille failid asuvad MemoryGame kaustas.
+        Button memoryGameButton = CreateMenuButton("OOP Memo mäng");
+
         treeButton.Clicked += async (sender, e) =>
             await Navigation.PushAsync(new TreePage());
 
@@ -50,6 +54,10 @@ public class MenuPage : ContentPage
         carouselGalleryButton.Clicked += async (sender, e) =>
             await Navigation.PushAsync(new ProgrammingLanguagesPage());
 
+        // Memo mäng kasutab eraldi Game, Player, Theme ja Card klasse.
+        memoryGameButton.Clicked += async (sender, e) =>
+            await Navigation.PushAsync(new MemoryGamePage());
+
         Content = new ScrollView
         {
             Content = new VerticalStackLayout
@@ -64,7 +72,8 @@ public class MenuPage : ContentPage
                     popupButton,
                     trafficLightButton,
                     ticTacToeButton,
-                    carouselGalleryButton
+                    carouselGalleryButton,
+                    memoryGameButton
                 }
             }
         };

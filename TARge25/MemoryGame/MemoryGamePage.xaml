@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:TARge25.MemoryGame"
+             x:Class="TARge25.MemoryGame.MemoryGamePage"
+             Title="Memo mäng"
+             BackgroundColor="#F2F6FF">
+
+    <!-- DynamicResource väärtused muudetakse Theme.Apply meetodist ilma lehte uuesti avamata. -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MemoBackground">#F2F6FF</Color>
+            <Color x:Key="MemoPanel">#FFFFFF</Color>
+            <Color x:Key="MemoText">#152448</Color>
+            <Color x:Key="MemoMutedText">#677596</Color>
+            <Color x:Key="MemoAccent">#4263EB</Color>
+            <x:String x:Key="MemoFont">OpenSansRegular</x:String>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16,16,16,34" Spacing="14">
+
+            <!-- Lehe päis: pealkiri ja väike selgitus. -->
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="20,20">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#414ADD" Offset="0.0" />
+                        <GradientStop Color="#9B55D9" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="🧠  MEMO MÄNG"
+                           FontSize="27" FontAttributes="Bold"
+                           TextColor="White" FontFamily="OpenSansSemibold" />
+                    <Label Text="Leia kaks ühesugust kaarti!"
+                           FontSize="14" TextColor="#E8EAFD"
+                           FontFamily="OpenSansRegular" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Kasutaja valib kolme teema vahel; muudetakse ka fonti. -->
+            <Border BackgroundColor="{DynamicResource MemoPanel}"
+                    StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="14">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                    <VerticalStackLayout Grid.Column="0" Spacing="3" VerticalOptions="Center">
+                        <Label Text="Vali teema" FontSize="17" FontAttributes="Bold"
+                               FontFamily="{DynamicResource MemoFont}"
+                               TextColor="{DynamicResource MemoText}" />
+                        <Label Text="Hele, tume või värviline"
+                               FontSize="12" FontFamily="{DynamicResource MemoFont}"
+                               TextColor="{DynamicResource MemoMutedText}" />
+                    </VerticalStackLayout>
+                    <Picker x:Name="ThemePicker" Grid.Column="1"
+                            WidthRequest="132" Title="Teema"
+                            TitleColor="{DynamicResource MemoMutedText}"
+                            TextColor="{DynamicResource MemoText}"
+                            FontFamily="{DynamicResource MemoFont}"
+                            SelectedIndexChanged="OnThemeChanged">
+                        <Picker.Items>
+                            <x:String>Hele</x:String>
+                            <x:String>Tume</x:String>
+                            <x:String>Värviline</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid>
+            </Border>
+
+            <!-- Mängija nime saab muuta; Player klass salvestab nime ja rekordid. -->
+            <Border BackgroundColor="{DynamicResource MemoPanel}"
+                    StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="12,5">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                    <Label Grid.Column="0" Text="Mängija:" VerticalOptions="Center"
+                           FontAttributes="Bold" FontFamily="{DynamicResource MemoFont}"
+                           TextColor="{DynamicResource MemoText}" />
+                    <Entry x:Name="PlayerNameEntry" Grid.Column="1"
+                           Placeholder="Sisesta nimi" MaxLength="24"
+                           ClearButtonVisibility="WhileEditing"
+                           TextColor="{DynamicResource MemoText}"
+                           FontFamily="{DynamicResource MemoFont}" />
+                </Grid>
+            </Border>
+
+            <!-- Näitame jooksvalt paare, käike, aega ja punkte. -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+                  ColumnSpacing="8" RowSpacing="8">
+                <Border Grid.Row="0" Grid.Column="0" BackgroundColor="{DynamicResource MemoPanel}"
+                        StrokeThickness="0" StrokeShape="RoundRectangle 15" Padding="12">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="PAARID" FontSize="11" TextColor="{DynamicResource MemoMutedText}"
+                               FontFamily="{DynamicResource MemoFont}" />
+                        <Label x:Name="PairsLabel" Text="0 / 8" FontSize="20" FontAttributes="Bold"
+                               TextColor="{DynamicResource MemoText}" FontFamily="{DynamicResource MemoFont}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Row="0" Grid.Column="1" BackgroundColor="{DynamicResource MemoPanel}"
+                        StrokeThickness="0" StrokeShape="RoundRectangle 15" Padding="12">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="KÄIGUD" FontSize="11" TextColor="{DynamicResource MemoMutedText}"
+                               FontFamily="{DynamicResource MemoFont}" />
+                        <Label x:Name="AttemptsLabel" Text="0" FontSize="20" FontAttributes="Bold"
+                               TextColor="{DynamicResource MemoText}" FontFamily="{DynamicResource MemoFont}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="0" BackgroundColor="{DynamicResource MemoPanel}"
+                        StrokeThickness="0" StrokeShape="RoundRectangle 15" Padding="12">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="AEG" FontSize="11" TextColor="{DynamicResource MemoMutedText}"
+                               FontFamily="{DynamicResource MemoFont}" />
+                        <Label x:Name="TimeLabel" Text="00:00" FontSize="20" FontAttributes="Bold"
+                               TextColor="{DynamicResource MemoText}" FontFamily="{DynamicResource MemoFont}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" BackgroundColor="{DynamicResource MemoPanel}"
+                        StrokeThickness="0" StrokeShape="RoundRectangle 15" Padding="12">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="PUNKTID" FontSize="11" TextColor="{DynamicResource MemoMutedText}"
+                               FontFamily="{DynamicResource MemoFont}" />
+                        <Label x:Name="ScoreLabel" Text="0" FontSize="20" FontAttributes="Bold"
+                               TextColor="{DynamicResource MemoAccent}" FontFamily="{DynamicResource MemoFont}" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Kaartide mängulaud on 4x4 CollectionView GridItemsLayout. -->
+            <Border BackgroundColor="{DynamicResource MemoPanel}" StrokeThickness="0"
+                    StrokeShape="RoundRectangle 22" Padding="10,12">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="LEIA KÕIK 8 PAARI" HorizontalTextAlignment="Center"
+                           FontSize="13" FontAttributes="Bold" FontFamily="{DynamicResource MemoFont}"
+                           TextColor="{DynamicResource MemoMutedText}" />
+                    <Grid HeightRequest="344">
+                        <CollectionView x:Name="CardsCollection" HeightRequest="344"
+                                        SelectionMode="None" VerticalScrollBarVisibility="Never"
+                                        ItemSizingStrategy="MeasureAllItems">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="4"
+                                                 HorizontalItemSpacing="7" VerticalItemSpacing="7" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="models:Card">
+                                    <!-- TapGestureRecognizer saadab vajutatud Card objekti C# meetodile. -->
+                                    <Border HeightRequest="77" Padding="0" StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 14"
+                                            BackgroundColor="{Binding TileBackground}">
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnCardTapped"
+                                                                  CommandParameter="{Binding .}" />
+                                        </Border.GestureRecognizers>
+                                        <Label Text="{Binding DisplaySymbol}"
+                                               TextColor="{Binding SymbolColor}"
+                                               FontSize="31" FontAttributes="Bold"
+                                               FontFamily="{DynamicResource MemoFont}"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center" />
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <!-- Pausi ajal katab see kiht kaardid ja keelab vajutamise. -->
+                        <Border x:Name="PauseOverlay" IsVisible="False"
+                                BackgroundColor="#DD111B3C" StrokeThickness="0"
+                                StrokeShape="RoundRectangle 16" Padding="14">
+                            <Label Text="⏸  PAUS" FontSize="30" FontAttributes="Bold"
+                                   TextColor="White" HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center" />
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Mängu juhtimise nupud: uus mäng ja paus/jätka. -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button x:Name="StartButton" Grid.Column="0" Text="🔄 Uus mäng"
+                        HeightRequest="54" CornerRadius="16" FontSize="16"
+                        FontAttributes="Bold" FontFamily="{DynamicResource MemoFont}"
+                        BackgroundColor="{DynamicResource MemoAccent}"
+                        TextColor="White" Clicked="OnStartClicked" />
+                <Button x:Name="PauseButton" Grid.Column="1" Text="⏸ Paus"
+                        HeightRequest="54" CornerRadius="16" FontSize="16"
+                        FontAttributes="Bold" FontFamily="{DynamicResource MemoFont}"
+                        BackgroundColor="#475569"
+                        TextColor="White" Clicked="OnPauseClicked" />
+            </Grid>
+
+            <!-- See Label näitab mängija viimast tegevust ja mängu olekut. -->
+            <Label x:Name="StatusLabel" Text="Leia kaks ühesugust kaarti!"
+                   FontSize="14" HorizontalTextAlignment="Center"
+                   TextColor="{DynamicResource MemoText}"
+                   FontFamily="{DynamicResource MemoFont}" />
+
+            <!-- Player klassist loetud salvestatud statistika. -->
+            <Border BackgroundColor="{DynamicResource MemoPanel}"
+                    StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="15">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="🏆 Minu tulemused" FontSize="18" FontAttributes="Bold"
+                           FontFamily="{DynamicResource MemoFont}" TextColor="{DynamicResource MemoText}" />
+                    <Label x:Name="WinsLabel" Text="Võite: 0" FontSize="14"
+                           FontFamily="{DynamicResource MemoFont}" TextColor="{DynamicResource MemoText}" />
+                    <Label x:Name="BestScoreLabel" Text="Parim tulemus: 0" FontSize="14"
+                           FontFamily="{DynamicResource MemoFont}" TextColor="{DynamicResource MemoText}" />
+                    <Label x:Name="BestTimeLabel" Text="Kiireim võit: –" FontSize="14"
+                           FontFamily="{DynamicResource MemoFont}" TextColor="{DynamicResource MemoText}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
