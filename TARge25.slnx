@@ -1,4 +1,8 @@
 <Solution>
+  <Project Path="Heliaed.Checks/Heliaed.Checks.csproj" />
+  <Project Path="Heliaed/Heliaed.csproj">
+    <Deploy />
+  </Project>
   <Project Path="TARge25/TARge25.csproj">
     <Deploy />
   </Project>

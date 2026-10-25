@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:Heliaed.Services"
+             xmlns:vm="clr-namespace:Heliaed.ViewModels"
+             xmlns:models="clr-namespace:Heliaed.Models" x:Class="Heliaed.Views.SettingsPage"
+             x:DataType="vm:MainViewModel" Title="{Binding [SettingsTitle], Source={x:Static loc:LocalizationService.Current}}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18" MaximumWidthRequest="620">
+            <Label Text="{Binding [SettingsTitle], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Heading}" />
+            <Border>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{Binding [Language], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Section}" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Text="Eesti" Command="{Binding LanguageCommand}" CommandParameter="et" />
+                        <Button Grid.Column="1" Text="English" Command="{Binding LanguageCommand}" CommandParameter="en" />
+                    </Grid>
+                    <Label Text="{Binding [LanguageHint], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout Spacing="8">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="{Binding [DarkTheme], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Section}" VerticalOptions="Center" />
+                        <Switch Grid.Column="1" IsToggled="{Binding Settings.IsDark}" SemanticProperties.Description="{Binding [DarkTheme], Source={x:Static loc:LocalizationService.Current}}" />
+                    </Grid>
+                    <Label Text="{Binding [ThemeHint], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{Binding [Music], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Section}" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="{Binding [Sound], Source={x:Static loc:LocalizationService.Current}}" VerticalOptions="Center" />
+                        <Switch Grid.Column="1" IsToggled="{Binding Settings.SoundEnabled}" SemanticProperties.Description="{Binding [Sound], Source={x:Static loc:LocalizationService.Current}}" />
+                    </Grid>
+                    <Label Text="{Binding [Volume], Source={x:Static loc:LocalizationService.Current}}" />
+                    <Slider Minimum="0" Maximum="1" Value="{Binding Settings.Volume}" SemanticProperties.Description="{Binding [Volume], Source={x:Static loc:LocalizationService.Current}}" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Text="{Binding [Play], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding PlayCommand}" />
+                        <Button Grid.Column="1" Text="{Binding [Pause], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding PauseCommand}" Style="{StaticResource Secondary}" />
+                    </Grid>
+                    <Label Text="{Binding PlaybackText}" FontAttributes="Bold" />
+                    <Label Text="{Binding [AudioHint], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+                </VerticalStackLayout>
+            </Border>
+            <Label Text="{Binding [RestoreHint], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+            <Label Text="{Binding Status}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

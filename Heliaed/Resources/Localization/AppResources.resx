@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="AppTitle">
+    <value>Heliaed</value>
+  </data>
+  <data xml:space="preserve" name="Subtitle">
+    <value>Loo oma väike rahulik maailm.</value>
+  </data>
+  <data xml:space="preserve" name="Garden">
+    <value>Aed</value>
+  </data>
+  <data xml:space="preserve" name="Library">
+    <value>Minu aiad</value>
+  </data>
+  <data xml:space="preserve" name="SettingsTitle">
+    <value>Seaded</value>
+  </data>
+  <data xml:space="preserve" name="NewScene">
+    <value>Uus aed</value>
+  </data>
+  <data xml:space="preserve" name="EditingScene">
+    <value>Muudad salvestatud aeda</value>
+  </data>
+  <data xml:space="preserve" name="SceneName">
+    <value>Aia nimi</value>
+  </data>
+  <data xml:space="preserve" name="NameHint">
+    <value>Näiteks: Õhtune aed</value>
+  </data>
+  <data xml:space="preserve" name="ChooseShape">
+    <value>1. Vali kujund</value>
+  </data>
+  <data xml:space="preserve" name="PlaceHint">
+    <value>2. Puuduta ruutu, et kujund sinna asetada. Kustutaja tühjendab ruudu.</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>Valitud</value>
+  </data>
+  <data xml:space="preserve" name="leaf">
+    <value>Leht</value>
+  </data>
+  <data xml:space="preserve" name="flower">
+    <value>Lill</value>
+  </data>
+  <data xml:space="preserve" name="moon">
+    <value>Kuu</value>
+  </data>
+  <data xml:space="preserve" name="empty">
+    <value>Kustutaja</value>
+  </data>
+  <data xml:space="preserve" name="Save">
+    <value>Salvesta</value>
+  </data>
+  <data xml:space="preserve" name="New">
+    <value>Uus aed</value>
+  </data>
+  <data xml:space="preserve" name="Clear">
+    <value>Tühjenda ruudud</value>
+  </data>
+  <data xml:space="preserve" name="NewHint">
+    <value>Uus aed alustab tühja tööga. Salvesta oma muudatused enne uue aia loomist või teise avamist.</value>
+  </data>
+  <data xml:space="preserve" name="Welcome">
+    <value>Vali kujund ja loo oma esimene aed.</value>
+  </data>
+  <data xml:space="preserve" name="NameRequired">
+    <value>Sisesta nimi: 1–60 märki.</value>
+  </data>
+  <data xml:space="preserve" name="Saved">
+    <value>Aed on salvestatud.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded">
+    <value>Aed on avatud. Muuda nime või kujundeid ja salvesta.</value>
+  </data>
+  <data xml:space="preserve" name="Deleted">
+    <value>Aed on kustutatud.</value>
+  </data>
+  <data xml:space="preserve" name="Edit">
+    <value>Ava ja muuda</value>
+  </data>
+  <data xml:space="preserve" name="Delete">
+    <value>Kustuta</value>
+  </data>
+  <data xml:space="preserve" name="DeleteQuestion">
+    <value>Kas kustutada see aed jäädavalt?</value>
+  </data>
+  <data xml:space="preserve" name="ConfirmDelete">
+    <value>Jah, kustuta</value>
+  </data>
+  <data xml:space="preserve" name="Cancel">
+    <value>Loobu</value>
+  </data>
+  <data xml:space="preserve" name="EmptyLibrary">
+    <value>Siin pole veel aedu. Loo aed esimesel vahelehel ja vajuta „Salvesta”.</value>
+  </data>
+  <data xml:space="preserve" name="LibraryHint">
+    <value>Ava aed, muuda seda ja salvesta uuesti. Sama kirje uueneb.</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>Keel</value>
+  </data>
+  <data xml:space="preserve" name="LanguageHint">
+    <value>Tekstid muutuvad kohe.</value>
+  </data>
+  <data xml:space="preserve" name="DarkTheme">
+    <value>Tume teema</value>
+  </data>
+  <data xml:space="preserve" name="ThemeHint">
+    <value>Väljas: hele teema. Sees: tume teema.</value>
+  </data>
+  <data xml:space="preserve" name="Sound">
+    <value>Heli lubatud</value>
+  </data>
+  <data xml:space="preserve" name="Volume">
+    <value>Helitugevus</value>
+  </data>
+  <data xml:space="preserve" name="Music">
+    <value>Aia meloodia</value>
+  </data>
+  <data xml:space="preserve" name="Play">
+    <value>Esita / jätka</value>
+  </data>
+  <data xml:space="preserve" name="Pause">
+    <value>Peata</value>
+  </data>
+  <data xml:space="preserve" name="Playing">
+    <value>Muusika mängib</value>
+  </data>
+  <data xml:space="preserve" name="Paused">
+    <value>Muusika on peatatud</value>
+  </data>
+  <data xml:space="preserve" name="Muted">
+    <value>Heli on välja lülitatud</value>
+  </data>
+  <data xml:space="preserve" name="AudioHint">
+    <value>Nupud juhivad taustamuusikat. Kujundi asetamisel kõlab lühike heli. Heli lüliti vaigistab mõlemad.</value>
+  </data>
+  <data xml:space="preserve" name="RestoreHint">
+    <value>Keel, teema, heli, helitugevus, esitusvalik ja viimane kujund taastatakse järgmisel käivitamisel. Aiad säilivad SQLite andmebaasis.</value>
+  </data>
+  <data xml:space="preserve" name="OperationFailed">
+    <value>Toiming ebaõnnestus. Proovi uuesti; kontrolli vaba kettaruumi ja heliseadet.</value>
+  </data>
+  <data xml:space="preserve" name="InvalidLayout">
+    <value>Salvestatud aia paigutus on vigane. Saad valida teise aia või selle kirje kustutada.</value>
+  </data>
+  <data name="EmptyCell" xml:space="preserve">
+    <value>Tühi ruut</value>
+  </data>
+  <data xml:space="preserve" name="sun">
+    <value>Päike</value>
+  </data>
+  <data xml:space="preserve" name="tree">
+    <value>Puu</value>
+  </data>
+  <data xml:space="preserve" name="mushroom">
+    <value>Seen</value>
+  </data>
+  <data xml:space="preserve" name="butterfly">
+    <value>Liblikas</value>
+  </data>
+  <data xml:space="preserve" name="bird">
+    <value>Lind</value>
+  </data>
+  <data xml:space="preserve" name="cloud">
+    <value>Pilv</value>
+  </data>
+  <data xml:space="preserve" name="star">
+    <value>Täht</value>
+  </data>
+  <data xml:space="preserve" name="BoardHint">
+    <value>Väljal on 6 × 6 ruutu. Kitsal ekraanil keri välja külgsuunas.</value>
+  </data>
+</root>

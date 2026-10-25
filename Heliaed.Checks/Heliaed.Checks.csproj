@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Heliaed</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Kontrollid kasutavad rakenduse tegelikke mudeleid, teenuseid ja vaademudelit. -->
+    <Compile Include="../Heliaed/Models/*.cs" Link="Models/%(Filename)%(Extension)" />
+    <Compile Include="../Heliaed/ViewModels/*.cs" Link="ViewModels/%(Filename)%(Extension)" />
+    <Compile Include="../Heliaed/Services/Contracts.cs" Link="Services/Contracts.cs" />
+    <Compile Include="../Heliaed/Services/SettingsService.cs" Link="Services/SettingsService.cs" />
+    <Compile Include="../Heliaed/Services/SceneRepository.cs" Link="Services/SceneRepository.cs" />
+    <Compile Include="../Heliaed/Services/LocalizationService.cs" Link="Services/LocalizationService.cs" />
+    <EmbeddedResource Include="../Heliaed/Resources/Localization/*.resx" Link="Resources/Localization/%(Filename)%(Extension)" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.11.285" />
+  </ItemGroup>
+</Project>

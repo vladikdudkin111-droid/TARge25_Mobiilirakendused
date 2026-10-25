@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="AppTitle">
+    <value>Sound Garden</value>
+  </data>
+  <data xml:space="preserve" name="Subtitle">
+    <value>Make a little world of your own.</value>
+  </data>
+  <data xml:space="preserve" name="Garden">
+    <value>Garden</value>
+  </data>
+  <data xml:space="preserve" name="Library">
+    <value>My gardens</value>
+  </data>
+  <data xml:space="preserve" name="SettingsTitle">
+    <value>Settings</value>
+  </data>
+  <data xml:space="preserve" name="NewScene">
+    <value>New garden</value>
+  </data>
+  <data xml:space="preserve" name="EditingScene">
+    <value>Editing a saved garden</value>
+  </data>
+  <data xml:space="preserve" name="SceneName">
+    <value>Garden name</value>
+  </data>
+  <data xml:space="preserve" name="NameHint">
+    <value>For example: Evening garden</value>
+  </data>
+  <data xml:space="preserve" name="ChooseShape">
+    <value>1. Choose a shape</value>
+  </data>
+  <data xml:space="preserve" name="PlaceHint">
+    <value>2. Tap a square to place the shape. The eraser clears a square.</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>Selected</value>
+  </data>
+  <data xml:space="preserve" name="leaf">
+    <value>Leaf</value>
+  </data>
+  <data xml:space="preserve" name="flower">
+    <value>Flower</value>
+  </data>
+  <data xml:space="preserve" name="moon">
+    <value>Moon</value>
+  </data>
+  <data xml:space="preserve" name="empty">
+    <value>Eraser</value>
+  </data>
+  <data xml:space="preserve" name="Save">
+    <value>Save</value>
+  </data>
+  <data xml:space="preserve" name="New">
+    <value>New garden</value>
+  </data>
+  <data xml:space="preserve" name="Clear">
+    <value>Clear squares</value>
+  </data>
+  <data xml:space="preserve" name="NewHint">
+    <value>New garden starts with a blank canvas. Save changes before starting a new garden or opening another one.</value>
+  </data>
+  <data xml:space="preserve" name="Welcome">
+    <value>Choose a shape and create your first garden.</value>
+  </data>
+  <data xml:space="preserve" name="NameRequired">
+    <value>Enter a name with 1–60 characters.</value>
+  </data>
+  <data xml:space="preserve" name="Saved">
+    <value>Garden saved.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded">
+    <value>Garden opened. Change the name or shapes, then save.</value>
+  </data>
+  <data xml:space="preserve" name="Deleted">
+    <value>Garden deleted.</value>
+  </data>
+  <data xml:space="preserve" name="Edit">
+    <value>Open and edit</value>
+  </data>
+  <data xml:space="preserve" name="Delete">
+    <value>Delete</value>
+  </data>
+  <data xml:space="preserve" name="DeleteQuestion">
+    <value>Permanently delete this garden?</value>
+  </data>
+  <data xml:space="preserve" name="ConfirmDelete">
+    <value>Yes, delete</value>
+  </data>
+  <data xml:space="preserve" name="Cancel">
+    <value>Cancel</value>
+  </data>
+  <data xml:space="preserve" name="EmptyLibrary">
+    <value>No gardens yet. Create a garden in the first tab and press Save.</value>
+  </data>
+  <data xml:space="preserve" name="LibraryHint">
+    <value>Open a garden, edit it and save again to update the same record.</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>Language</value>
+  </data>
+  <data xml:space="preserve" name="LanguageHint">
+    <value>Text changes immediately.</value>
+  </data>
+  <data xml:space="preserve" name="DarkTheme">
+    <value>Dark theme</value>
+  </data>
+  <data xml:space="preserve" name="ThemeHint">
+    <value>Off: light theme. On: dark theme.</value>
+  </data>
+  <data xml:space="preserve" name="Sound">
+    <value>Sound enabled</value>
+  </data>
+  <data xml:space="preserve" name="Volume">
+    <value>Volume</value>
+  </data>
+  <data xml:space="preserve" name="Music">
+    <value>Garden melody</value>
+  </data>
+  <data xml:space="preserve" name="Play">
+    <value>Play / resume</value>
+  </data>
+  <data xml:space="preserve" name="Pause">
+    <value>Pause</value>
+  </data>
+  <data xml:space="preserve" name="Playing">
+    <value>Music is playing</value>
+  </data>
+  <data xml:space="preserve" name="Paused">
+    <value>Music is paused</value>
+  </data>
+  <data xml:space="preserve" name="Muted">
+    <value>Sound is muted</value>
+  </data>
+  <data xml:space="preserve" name="AudioHint">
+    <value>Buttons control the background melody. Placing a shape plays a short chime. The sound switch mutes both.</value>
+  </data>
+  <data xml:space="preserve" name="RestoreHint">
+    <value>Language, theme, sound, volume, playback choice and last shape are restored on the next launch. Gardens remain in the SQLite database.</value>
+  </data>
+  <data xml:space="preserve" name="OperationFailed">
+    <value>The operation failed. Try again; check free disk space and the audio device.</value>
+  </data>
+  <data xml:space="preserve" name="InvalidLayout">
+    <value>This saved garden contains an invalid layout. Open another garden or delete this record.</value>
+  </data>
+  <data name="EmptyCell" xml:space="preserve">
+    <value>Empty square</value>
+  </data>
+  <data xml:space="preserve" name="sun">
+    <value>Sun</value>
+  </data>
+  <data xml:space="preserve" name="tree">
+    <value>Tree</value>
+  </data>
+  <data xml:space="preserve" name="mushroom">
+    <value>Mushroom</value>
+  </data>
+  <data xml:space="preserve" name="butterfly">
+    <value>Butterfly</value>
+  </data>
+  <data xml:space="preserve" name="bird">
+    <value>Bird</value>
+  </data>
+  <data xml:space="preserve" name="cloud">
+    <value>Cloud</value>
+  </data>
+  <data xml:space="preserve" name="star">
+    <value>Star</value>
+  </data>
+  <data xml:space="preserve" name="BoardHint">
+    <value>The garden has 6 × 6 squares. On a narrow screen, scroll the board sideways.</value>
+  </data>
+</root>

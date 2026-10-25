@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:Heliaed.Services"
+             xmlns:vm="clr-namespace:Heliaed.ViewModels"
+             xmlns:models="clr-namespace:Heliaed.Models" x:Class="Heliaed.Views.LibraryPage" x:Name="LibraryRoot"
+             x:DataType="vm:MainViewModel" Title="{Binding [Library], Source={x:Static loc:LocalizationService.Current}}">
+    <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,Auto,*,Auto" RowSpacing="12">
+        <Label Text="{Binding [Library], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Heading}" />
+        <Label Grid.Row="1" Text="{Binding [LibraryHint], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+        <Border Grid.Row="2" IsVisible="{Binding HasPendingDelete}">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding [DeleteQuestion], Source={x:Static loc:LocalizationService.Current}}" FontAttributes="Bold" />
+                <Label Text="{Binding PendingDeleteTitle}" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                    <Button Text="{Binding [ConfirmDelete], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding ConfirmDeleteCommand}" Style="{StaticResource Danger}" />
+                    <Button Grid.Column="1" Text="{Binding [Cancel], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding CancelDeleteCommand}" Style="{StaticResource Secondary}" />
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+        <Label Grid.Row="3" Text="{Binding [EmptyLibrary], Source={x:Static loc:LocalizationService.Current}}" IsVisible="{Binding IsLibraryEmpty}" />
+        <!-- Kirjed kuvatakse tüübitud DataTemplate abil. -->
+        <CollectionView Grid.Row="4" ItemsSource="{Binding Scenes}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:GardenScene">
+                    <Border Margin="0,0,0,12">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="{Binding Title}" Style="{StaticResource Section}" />
+                            <Label Text="{Binding Summary}" Style="{StaticResource Hint}" />
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                                <Button Text="{Binding [Edit], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding BindingContext.EditCommand, Source={x:Reference LibraryRoot}}" CommandParameter="{Binding .}" />
+                                <Button Grid.Column="1" Text="{Binding [Delete], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding BindingContext.RequestDeleteCommand, Source={x:Reference LibraryRoot}}" CommandParameter="{Binding .}" Style="{StaticResource Danger}" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Grid.Row="5" Text="{Binding Status}" />
+    </Grid>
+</ContentPage>

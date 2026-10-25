@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:Heliaed.Services"
+             xmlns:vm="clr-namespace:Heliaed.ViewModels"
+             xmlns:models="clr-namespace:Heliaed.Models" x:Class="Heliaed.Views.GardenPage" x:Name="GardenRoot"
+             x:DataType="vm:MainViewModel" Title="{Binding [Garden], Source={x:Static loc:LocalizationService.Current}}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14" MaximumWidthRequest="620" HorizontalOptions="Fill">
+            <Label Text="{Binding [AppTitle], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Heading}" />
+            <Label Text="{Binding [Subtitle], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+            <Label Text="{Binding Mode}" Style="{StaticResource Section}" />
+            <Label Text="{Binding [SceneName], Source={x:Static loc:LocalizationService.Current}}" />
+            <Entry Text="{Binding Title}" Placeholder="{Binding [NameHint], Source={x:Static loc:LocalizationService.Current}}" MaxLength="60" IsEnabled="{Binding CanEdit}" />
+            <Label Text="{Binding [ChooseShape], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Section}" />
+            <!-- Kümme pilti kuvatakse ühise andmemalli abil. -->
+            <CollectionView ItemsSource="{Binding Palette}" SelectionMode="None" HeightRequest="196" VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemsLayout><GridItemsLayout Orientation="Vertical" Span="5" /></CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:GardenCell">
+                        <VerticalStackLayout Spacing="4" Margin="4" HeightRequest="90">
+                            <ImageButton Source="{Binding ImageFile}"
+                                         Command="{Binding BindingContext.SelectKindCommand, Source={x:Reference GardenRoot}}"
+                                         CommandParameter="{Binding Kind}" SemanticProperties.Description="{Binding DisplayName}" />
+                            <Label Text="{Binding DisplayName}" HorizontalTextAlignment="Center" FontSize="12" MaxLines="1" LineBreakMode="TailTruncation" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="{Binding [empty], Source={x:Static loc:LocalizationService.Current}}"
+                    Style="{StaticResource Secondary}"
+                    Command="{Binding SelectKindCommand}" CommandParameter="empty" />
+            <Label Text="{Binding SelectedText}" FontAttributes="Bold" />
+            <Label Text="{Binding [PlaceHint], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+            <Label Text="{Binding [BoardHint], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+            <!-- Kitsal ekraanil saab välja horisontaalselt kerida; ruut jääb puudutamiseks piisavalt suureks. -->
+            <ScrollView Orientation="Horizontal" HeightRequest="300">
+                <CollectionView ItemsSource="{Binding Cells}" SelectionMode="None" HeightRequest="300" WidthRequest="300"
+                                HorizontalOptions="Center" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+                    <CollectionView.ItemsLayout><GridItemsLayout Orientation="Vertical" Span="6" /></CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:GardenCell">
+                            <Border Margin="2" Padding="5" HeightRequest="46" StrokeShape="RoundRectangle 7" SemanticProperties.Description="{Binding Description}">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BindingContext.PlaceCommand, Source={x:Reference GardenRoot}}" CommandParameter="{Binding .}" />
+                                </Border.GestureRecognizers>
+                                <Image Source="{Binding ImageFile}" InputTransparent="True" Aspect="AspectFit" />
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <Button Text="{Binding [Save], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding SaveCommand}" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                <Button Text="{Binding [New], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding NewCommand}" Style="{StaticResource Secondary}" />
+                <Button Grid.Column="1" Text="{Binding [Clear], Source={x:Static loc:LocalizationService.Current}}" Command="{Binding ClearCommand}" Style="{StaticResource Secondary}" />
+            </Grid>
+            <Label Text="{Binding [NewHint], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Hint}" />
+            <ActivityIndicator IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" Color="#4C9C70" />
+            <Label Text="{Binding Status}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

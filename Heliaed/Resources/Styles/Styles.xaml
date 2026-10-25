@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!-- Ühised stiilid kohanduvad rakenduse heleda ja tumeda teemaga. -->
+    <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F5F6F0, Dark=#14231F}" />
+    </Style>
+    <Style x:Key="Body" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#193D33, Dark=#ECF3E8}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style TargetType="Label" BasedOn="{StaticResource Body}" />
+    <Style x:Key="Heading" TargetType="Label" BasedOn="{StaticResource Body}">
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="28" />
+    </Style>
+    <Style x:Key="Section" TargetType="Label" BasedOn="{StaticResource Body}">
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    <Style x:Key="Hint" TargetType="Label" BasedOn="{StaticResource Body}">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#4E655D, Dark=#AAC2B5}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+    <Style x:Key="Primary" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#26634F, Dark=#A7DAB8}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark=#14231F}" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+        <Setter Property="Padding" Value="12,8" />
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource Primary}" />
+    <Style x:Key="Secondary" TargetType="Button" BasedOn="{StaticResource Primary}">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#E2EADD, Dark=#2B4438}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#193D33, Dark=#ECF3E8}" />
+    </Style>
+    <Style x:Key="Danger" TargetType="Button" BasedOn="{StaticResource Secondary}">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#A32E37, Dark=#FFB3B8}" />
+    </Style>
+    <Style TargetType="ImageButton">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#E2EADD, Dark=#2B4438}" />
+        <Setter Property="CornerRadius" Value="16" />
+        <Setter Property="HeightRequest" Value="58" />
+        <Setter Property="Padding" Value="10" />
+    </Style>
+    <Style TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#20372D}" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Light=#D4DFD2, Dark=#486151}" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 18" />
+        <Setter Property="Padding" Value="16" />
+    </Style>
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#193D33, Dark=#ECF3E8}" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#52645B, Dark=#AEC0B0}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+    </Style>
+    <Style TargetType="Switch"><Setter Property="OnColor" Value="#4C9C70" /></Style>
+    <Style TargetType="Slider"><Setter Property="MinimumTrackColor" Value="#4C9C70" /></Style>
+</ResourceDictionary>
+
+
