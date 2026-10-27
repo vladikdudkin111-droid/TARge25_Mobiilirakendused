@@ -7,7 +7,8 @@ public sealed class GardenLayout
     public const int Size = 6;
     public const int CellCount = Size * Size;
     public static readonly IReadOnlyList<string> PictureKinds = Array.AsReadOnly(new[]
-        { "leaf", "flower", "moon", "sun", "tree", "mushroom", "butterfly", "bird", "cloud", "star" });
+        { "leaf", "flower", "moon", "sun", "tree", "mushroom", "butterfly", "bird", "cloud", "star",
+          "bee", "ladybug", "snail", "frog", "house", "turtle", "cat", "rabbit", "apple", "strawberry" });
     public static readonly IReadOnlyList<string> Kinds = Array.AsReadOnly(PictureKinds.Append("empty").ToArray());
     private readonly string[] cells;
     private string[]? originalLargeCells;
@@ -29,7 +30,9 @@ public sealed class GardenLayout
     }
     public static GardenLayout FromJson(string json)
     {
-        var values = JsonSerializer.Deserialize<string[]>(json);
+        // Vanades salvestustes asendatakse kala majaga.
+        var values = JsonSerializer.Deserialize<string[]>(json)?
+            .Select(kind => kind == "fish" ? "house" : kind).ToArray();
         if (values is null || (values.Length != CellCount && values.Length != 9 && values.Length != 100) || values.Any(x => !Kinds.Contains(x)))
             throw new FormatException("Paigutus peab sisaldama 6 × 6 välja või vana 3 × 3 või 10 × 10 aeda.");
         var layout = new GardenLayout();

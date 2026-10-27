@@ -183,4 +183,34 @@
   <data xml:space="preserve" name="BoardHint">
     <value>The garden has 6 × 6 squares. On a narrow screen, scroll the board sideways.</value>
   </data>
+  <data xml:space="preserve" name="bee">
+    <value>Bee</value>
+  </data>
+  <data xml:space="preserve" name="ladybug">
+    <value>Ladybug</value>
+  </data>
+  <data xml:space="preserve" name="snail">
+    <value>Snail</value>
+  </data>
+  <data xml:space="preserve" name="frog">
+    <value>Frog</value>
+  </data>
+  <data xml:space="preserve" name="house">
+    <value>House</value>
+  </data>
+  <data xml:space="preserve" name="turtle">
+    <value>Turtle</value>
+  </data>
+  <data xml:space="preserve" name="cat">
+    <value>Cat</value>
+  </data>
+  <data xml:space="preserve" name="rabbit">
+    <value>Rabbit</value>
+  </data>
+  <data xml:space="preserve" name="apple">
+    <value>Apple</value>
+  </data>
+  <data xml:space="preserve" name="strawberry">
+    <value>Strawberry</value>
+  </data>
 </root>

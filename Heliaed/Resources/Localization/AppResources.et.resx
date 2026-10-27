@@ -183,4 +183,34 @@
   <data xml:space="preserve" name="BoardHint">
     <value>Väljal on 6 × 6 ruutu. Kitsal ekraanil keri välja külgsuunas.</value>
   </data>
+  <data xml:space="preserve" name="bee">
+    <value>Mesilane</value>
+  </data>
+  <data xml:space="preserve" name="ladybug">
+    <value>Lepatriinu</value>
+  </data>
+  <data xml:space="preserve" name="snail">
+    <value>Tigu</value>
+  </data>
+  <data xml:space="preserve" name="frog">
+    <value>Konn</value>
+  </data>
+  <data xml:space="preserve" name="house">
+    <value>Maja</value>
+  </data>
+  <data xml:space="preserve" name="turtle">
+    <value>Kilpkonn</value>
+  </data>
+  <data xml:space="preserve" name="cat">
+    <value>Kass</value>
+  </data>
+  <data xml:space="preserve" name="rabbit">
+    <value>Küülik</value>
+  </data>
+  <data xml:space="preserve" name="apple">
+    <value>Õun</value>
+  </data>
+  <data xml:space="preserve" name="strawberry">
+    <value>Maasikas</value>
+  </data>
 </root>

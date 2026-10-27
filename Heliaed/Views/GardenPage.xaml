@@ -13,8 +13,8 @@
             <Label Text="{Binding [SceneName], Source={x:Static loc:LocalizationService.Current}}" />
             <Entry Text="{Binding Title}" Placeholder="{Binding [NameHint], Source={x:Static loc:LocalizationService.Current}}" MaxLength="60" IsEnabled="{Binding CanEdit}" />
             <Label Text="{Binding [ChooseShape], Source={x:Static loc:LocalizationService.Current}}" Style="{StaticResource Section}" />
-            <!-- Kümme pilti kuvatakse ühise andmemalli abil. -->
-            <CollectionView ItemsSource="{Binding Palette}" SelectionMode="None" HeightRequest="196" VerticalScrollBarVisibility="Never">
+            <!-- Kakskümmend pilti kuvatakse ühise andmemalli abil. -->
+            <CollectionView ItemsSource="{Binding Palette}" SelectionMode="None" HeightRequest="392" VerticalScrollBarVisibility="Never">
                 <CollectionView.ItemsLayout><GridItemsLayout Orientation="Vertical" Span="5" /></CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:GardenCell">

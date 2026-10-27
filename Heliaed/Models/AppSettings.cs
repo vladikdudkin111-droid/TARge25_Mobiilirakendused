@@ -12,5 +12,13 @@ public sealed class AppSettings : ObservableObject
     public bool SoundEnabled { get => soundEnabled; set => Set(ref soundEnabled, value); }
     public bool MusicPlaying { get => musicPlaying; set => Set(ref musicPlaying, value); }
     public double Volume { get => volume; set => Set(ref volume, double.IsFinite(value) ? Math.Clamp(value, 0, 1) : 0.35); }
-    public string SelectedKind { get => selectedKind; set => Set(ref selectedKind, GardenLayout.Kinds.Contains(value) ? value : "leaf"); }
+    public string SelectedKind
+    {
+        get => selectedKind;
+        set
+        {
+            if (value == "fish") value = "house";
+            Set(ref selectedKind, GardenLayout.Kinds.Contains(value) ? value : "leaf");
+        }
+    }
 }

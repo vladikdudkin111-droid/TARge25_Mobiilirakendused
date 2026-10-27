@@ -17,7 +17,16 @@ try
     var path = Path.Combine(folder, "test.db3");
     var layout = new GardenLayout();
     Check(layout.Cells.Count == 36 && GardenLayout.Size == 6, "Board is 6 by 6");
-    Check(GardenLayout.PictureKinds.Count == 10 && GardenLayout.PictureKinds.Distinct().Count() == 10, "Ten distinct pictures");
+    Check(GardenLayout.PictureKinds.Count == 20 && GardenLayout.PictureKinds.Distinct().Count() == 20, "Twenty distinct pictures");
+    Check(GardenLayout.PictureKinds.Contains("house") && !GardenLayout.PictureKinds.Contains("fish"), "House replaces fish in palette");
+    foreach (var oldLength in new[] { 9, 36, 100 })
+    {
+        var oldValues = Enumerable.Repeat("empty", oldLength).ToArray();
+        oldValues[0] = oldValues[^1] = "fish";
+        var converted = GardenLayout.FromJson(System.Text.Json.JsonSerializer.Serialize(oldValues));
+        var convertedValues = System.Text.Json.JsonSerializer.Deserialize<string[]>(converted.ToJson())!;
+        Check(converted.Cells[0] == "house" && convertedValues.Count(x => x == "house") == 2 && !convertedValues.Contains("fish"), "Fish migration in saved layout: " + oldLength);
+    }
     Check(!GardenLayout.PictureKinds.Contains("empty") && GardenLayout.Kinds.Contains("empty"), "Eraser is an additional tool");
     var pictureProbe = new GardenLayout();
     for (int i = 0; i < GardenLayout.PictureKinds.Count; i++)
@@ -109,6 +118,7 @@ try
     restored.Volume = 99; Check(restored.Volume == 1, "Volume clamped");
     restored.Volume = double.NaN; Check(restored.Volume == .35, "NaN volume rejected");
     restored.SelectedKind = "invalid"; Check(restored.SelectedKind == "leaf", "Invalid tool reset");
+    restored.SelectedKind = "fish"; Check(restored.SelectedKind == "house", "Old fish tool restores as house");
 
     var loc = LocalizationService.Current;
     var notifications = 0;
@@ -129,7 +139,7 @@ try
     {
         var vm = new MainViewModel(repo, settings, fakeAudio);
         await vm.InitializeCommand.ExecuteAsync();
-        Check(vm.Cells.Count == 36 && vm.Palette.Count == 10, "ViewModel exposes whole board and palette");
+        Check(vm.Cells.Count == 36 && vm.Palette.Count == 20, "ViewModel exposes whole board and palette");
         Check(vm.IsLibraryEmpty, "VM starts empty");
         await vm.SaveCommand.ExecuteAsync();
         Check(vm.Status == "Enter a name with 1–60 characters." && vm.Scenes.Count == 0, "VM name validation");
